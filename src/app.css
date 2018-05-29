@@ -1,0 +1,77 @@
+#root {
+  padding: 12px 18px;
+  color: white;
+  background: #28292d;
+  display: flex;
+  flex-flow: column;
+}
+.board {
+  margin-bottom: 12px;
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.card {
+  background: rgb(110, 110, 110);
+  min-height: 280px;
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  padding: 14px 0;
+}
+.card-content > button {
+  border-radius: 18px;
+  border: 1px rgb(255, 255, 255) solid;
+  outline: none;
+  background: transparent;
+  color: white;
+}
+/* .card-content {
+  margin-bottom: 12px;
+} */
+.btn-wrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.btn-wrapper > button {
+  border: none;
+  outline: none;
+  min-width: 76px;
+  background: #5fc323;
+  /* text-transform: uppercase; */
+  padding: 4px 8px;
+  color: white;
+}
+.filter {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+}
+.filter ul {
+  list-style-type: none;
+  text-align: center;
+  flex: auto;
+}
+.filter li {
+  display: inline;
+  margin: 0 6px;
+}
+
+@media (max-width: 740px) {
+  .board {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+} 
+
+@media (max-width: 560px) {
+  .board {
+    grid-template-columns: 1fr 1fr;
+  }
+} 
+@media (max-width: 200px) {
+  .board {
+    grid-template-columns: 1fr;
+  }
+} 
