@@ -89,6 +89,16 @@
   text-align: center;
   cursor: pointer;
 }
+.f2 {
+  width: 100%;
+  background: red;
+  min-height: 40px;
+  z-index: 99;
+  user-select: none;
+}
+.filter-content > div:hover {
+  background: white;
+}
 @media (max-width: 740px) {
   .board {
     grid-template-columns: 1fr 1fr 1fr;
@@ -100,11 +110,12 @@
     grid-template-columns: 1fr 1fr;
   }
 } 
-@media (max-width: 200px) {
+@media (max-width: 400px) {
   .board {
     grid-template-columns: 1fr;
   }
 } 
+@keyframes opacity {}
 /* @media (min-width: 1360px) {
   .board {
     gap: 32px;

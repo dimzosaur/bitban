@@ -54,7 +54,7 @@ class App extends Component {
 
     const { items, viewMoreLabel, title, showDropdownFilter } = this.state;
 
-    const letras = ('abcdefghijklmnñopqrstuvwxyz'.split('')).map(el => ({ value: el, exist: data.items.find(i => (i.nick).toLowerCase().startsWith(el)) }) ) 
+    const letras = ('abcdefghijklmnñopqrstuvwxyz'.split('')).map(el => ({ value: el, exist: data.items.find(i => (i.nick).toLowerCase().startsWith(el)) }) ) ;
 
     return ( 
     <React.Fragment>
@@ -71,7 +71,7 @@ class App extends Component {
               role={el.role}
               nick={el.nick}
               name={el.name}
-              bg={{backgroundImage: `url(${el.imageURL || ''})`}} 
+              bg={{backgroundImage: `url(${el.imageURL || './src/static/fake-image-player-V.jpg'})`}} 
               linkClick={this.onCardLinkClick}
               />
             )
