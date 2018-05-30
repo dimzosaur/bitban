@@ -11,7 +11,9 @@ class Card extends Component {
       <div className="card-content">
       <h3>{props.nick}</h3>
       <h4>{props.name}</h4>
-      <button onClick={evt => props.linkClick(props.id, evt)}>{props.role}</button>
+      {
+        !!props.role ? <button className="role-link" onClick={evt => props.linkClick(props.url, evt)}>{props.role}</button> : null
+      }      
       </div>
     </div>
     );

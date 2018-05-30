@@ -1,9 +1,12 @@
 #root {
   padding: 12px 18px;
   color: white;
-  background: #28292d;
   display: flex;
   flex-flow: column;
+  align-items: center;
+}
+.app-wrap{
+  width: 80%;
 }
 .board {
   margin-bottom: 12px;
@@ -14,20 +17,12 @@
 .card {
   /* background: rgb(110, 110, 110); */
   background-repeat: no-repeat;
-  background-size:cover;
   min-height: 280px;
   text-align: center;
   display: flex;
   flex-flow: column;
   justify-content: flex-end;
   padding: 14px 0;
-}
-.card-content > button {
-  border-radius: 18px;
-  border: 1px rgb(255, 255, 255) solid;
-  outline: none;
-  background: transparent;
-  color: white;
 }
 /* .card-content {
   margin-bottom: 12px;
@@ -48,11 +43,6 @@
   color: white;
   cursor: pointer;
 }
-.filter {
-  width: 100%;
-  display: flex;
-  flex-flow: row;
-}
 .filter-wrapper button {
   border: none;
   outline: none;
@@ -62,15 +52,19 @@
 }
 .filter-wrapper {
   margin: 8px 0;
+  position: relative;  
 }
-.filter ul {
-  list-style-type: none;
-  text-align: center;
-  flex: auto;
+.filter-content {
+  animation: contentApear 0.3s;  
+  background: rgb(145, 145, 145);
 }
-.filter li {
-  display: inline;
-  margin: 0 6px;
+@keyframes contentApear {
+  from{
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .filter-dropdown {
   width: 100%;
@@ -79,6 +73,18 @@
   border: none;
   padding: 7px;
   outline: none;
+}
+.filter-dropdown-todos {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 10px;
+  align-items: center;
+  display: flex;
+  flex-flow: row;
+}
+.filter-dropdown-todos:hover {
+  background: white;
+  color: black !important;
 }
 .filter-no-dropdown {
   display: flex;
@@ -89,19 +95,74 @@
   text-align: center;
   cursor: pointer;
 }
-.f2 {
+.filter {
   width: 100%;
-  background: red;
+  /* background: rgb(145, 145, 145); */
   min-height: 40px;
   z-index: 99;
   user-select: none;
+  border-radius: 4px;
+  /* position: absolute; */
 }
-.filter-content > div:hover {
-  background: white;
+.filter-dropdown-option {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  transition: 0.3s;
 }
-@media (max-width: 740px) {
+.role-link{
+  border-radius: 18px;
+  border: 1px rgb(255, 255, 255) solid;
+  outline: none;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+.filter-dropdown-option:hover {
+  background: white !important;
+  color: #28292d !important;
+}
+.a {
+  width: 24px;
+}
+.b {
+  flex: auto;
+}
+.filter-selected {
+  padding-left: 32px;
+  padding-top: 8px;
+  padding-right: 8px;
+  background: rgb(145, 145, 145);
+  padding-bottom: 8px;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+.filter-val {
+  flex: auto;
+}
+.filter-arrow {
+  justify-content: flex-end;
+}
+
+@media (min-width: 1700px) {
+  .app-wrap{
+    width: 65%;
+  }
+} 
+
+@media (max-width: 1200px) {
+  .app-wrap{
+    width: 80%;
+  }
+} 
+
+@media (max-width: 780px) {
   .board {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .app-wrap{
+    width: 90%;
   }
 } 
 
@@ -109,10 +170,16 @@
   .board {
     grid-template-columns: 1fr 1fr;
   }
+  .app-wrap{
+    width: 100%;
+  }
 } 
-@media (max-width: 400px) {
+@media (max-width: 260px) {
   .board {
     grid-template-columns: 1fr;
+  }
+  .app-wrap{
+    width: 100%;
   }
 } 
 @keyframes opacity {}

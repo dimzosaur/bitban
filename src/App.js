@@ -38,8 +38,8 @@ class App extends Component {
         showDropdownFilter: false
       })
   }
-  onCardLinkClick(id, evt) {
-    console.log(id, evt);
+  onCardLinkClick(url, evt) {
+    window.location.href = url;
   }
   onFilterSet(val, evt) {
 
@@ -57,7 +57,7 @@ class App extends Component {
     const letras = ('abcdefghijklmnñopqrstuvwxyz'.split('')).map(el => ({ value: el, exist: data.items.find(i => (i.nick).toLowerCase().startsWith(el)) }) ) ;
 
     return ( 
-    <React.Fragment>
+    <div className="app-wrap">
       <Title>{title.toUpperCase()}</Title>
       <Filter
         showDropdownFilter={showDropdownFilter}
@@ -71,6 +71,7 @@ class App extends Component {
               role={el.role}
               nick={el.nick}
               name={el.name}
+              url={!!el.roleLink ? el.roleLink.URL : '' }
               bg={{backgroundImage: `url(${el.imageURL || './src/static/fake-image-player-V.jpg'})`}} 
               linkClick={this.onCardLinkClick}
               />
@@ -79,7 +80,7 @@ class App extends Component {
         }
       </Board>
       <BtnVerMas>{viewMoreLabel.toUpperCase()}</BtnVerMas>
-    </React.Fragment>
+    </div>
     )
   }
 };
